@@ -1,24 +1,29 @@
 import { async } from 'q';
 import React, { useEffect, useState } from 'react';
+import { string } from 'yargs';
 import Tmdb from './Tmdb';
 
 function App() {
 const [movieList, setMovieList] = useState([]);
 
-type typelist = slug | title | items
-
   useEffect( () =>{
       const loadAll = async () => {
           //pegando a lista total
         let list = await Tmdb.getHomeList();
-        setMovieList(list: typelist);
+        setMovieList(list);
       }
       loadAll();
   }, []);
 
   return (
     <div className="App">
-      <h1>oii</h1>
+      <section className="lists">
+        {movieList.map((item, key)=>(
+          <div>
+            {item.title}
+          </div>
+        ))}
+      </section>
     </div>
   );
 }

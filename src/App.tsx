@@ -2,6 +2,8 @@ import { async } from 'q';
 import React, { useEffect, useState } from 'react';
 import { string } from 'yargs';
 import Tmdb from './Tmdb';
+import './app.css';
+
 
 function App() {
 const [movieList, setMovieList] = useState([]);
